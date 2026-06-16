@@ -28,7 +28,7 @@ calculateTotal(50, 20)`
     setLoading(true);
     try {
       const response = await axios.post(
-        "${import.meta.env.VITE_API_URL}/api/analyze",
+        "http://localhost:4000/api/analyze",
         { code }
       );
       setResult(response.data);
