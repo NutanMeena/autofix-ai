@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import MonacoEditor from "@monaco-editor/react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
 function Editor() {
 
   const [code, setCode] = useState(
@@ -28,7 +30,7 @@ calculateTotal(50, 20)`
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/analyze",
+        `${API_URL}/api/analyze`,
         { code }
       );
       setResult(response.data);
