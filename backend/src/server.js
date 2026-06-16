@@ -6,7 +6,13 @@ const analyzeRoutes = require('./routes/analyze');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://autofixerai.netlify.app",
+    "http://localhost:5173"
+  ]
+}));
+
 app.use(express.json({ limit: '10mb' }));
 
 app.use('/api', analyzeRoutes);
