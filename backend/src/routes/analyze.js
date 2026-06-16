@@ -3,7 +3,7 @@ const router = express.Router();
 const AICodeFixer = require('../services/aiFixer');
 const { analysisLimiter } = require('../middleware/rateLimit');
 
-const aiFixer = new AICodeFixer(process.env.OPENAI_API_KEY);
+const aiFixer = new AICodeFixer(process.env.GROQ_API_KEY);
 
 router.post('/analyze', analysisLimiter, async (req, res) => {
   const { code, language = 'python' } = req.body;
